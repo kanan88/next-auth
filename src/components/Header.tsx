@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import { SignedIn, SignInButton, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Header = () => {
   return (
@@ -18,7 +18,12 @@ const Header = () => {
         <ul className="flex gap-4">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href="/sign-in">Sign In</Link>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
         </ul>
       </div>
     </header>
