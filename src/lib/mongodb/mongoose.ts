@@ -17,7 +17,7 @@ export const connect = async () => {
 
   try {
     await mongoose.connect(mongoUri, {
-      dbName: 'next auth app',
+      dbName: 'next_auth_app',
     });
 
     console.log('MongoDB connected');
