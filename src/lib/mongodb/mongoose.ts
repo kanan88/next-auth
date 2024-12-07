@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { ConnectOptions } from 'mongoose';
 
 let initialized = false;
 
@@ -18,7 +18,9 @@ export const connect = async () => {
   try {
     await mongoose.connect(mongoUri, {
       dbName: 'next-auth-app',
-    });
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as ConnectOptions);
 
     console.log('MongoDB connected');
     initialized = true;
